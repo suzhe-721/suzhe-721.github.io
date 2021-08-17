@@ -5,10 +5,6 @@
   <!-- SEO相关 -->
   
     
-      
-        <meta name="robots" content="index,follow">
-      
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -23,7 +19,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>Suzhe&#39;s website</title>
+  <title>Machine Learning - Suzhe&#39;s website</title>
   
 
   
@@ -58,7 +54,7 @@
 <body>
   
 
-<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -309,7 +305,7 @@
     <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  dock' style="display: ;">
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.pixabay.com/photo/2021/07/09/11/18/austria-6398889_1280.jpg"></div>
           
@@ -332,7 +328,7 @@
   </div>
 </div>
 
-          <div id="scroll-down" style="display: ;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
         </div>
     
   
@@ -343,167 +339,219 @@
         
 
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
-  <section class="post-list">
-    
-      
-        
-        
-          
-        
-          
-        
-          
-        
-      
+
+
+  
+  <div class="article-meta" id="top">
     
     
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
     
-    <h2 class="article-title" >
-      <a href="/2021/08/17/Machine-Learning/">
+      <h1 class="title">
         Machine Learning
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        声明：本习题出自台湾大学李宏毅教授2020机器学习课程，代码参考b站大神，哈哈哈哈哈哈
-Problem Description:You were given two sets of data, x_data represent the CP value of the Pokeman before the evolution, y_data represents the CP value of...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+      </h1>
+      <div class='new-meta-box'>
         
           
-          <a class='avatar' href='/'><img src=''></a>
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="">
+    <p>Suzhe Wu</p>
+  </a>
+</div>
+
+          
         
-        <time>2021-08-17</time>
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Aug 17, 2021</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="Machine Learning" data-path="/2021/08/17/Machine-Learning/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  <p>声明：本习题出自台湾大学李宏毅教授2020机器学习课程，代码参考b站大神，哈哈哈哈哈哈</p>
+<p>Problem Description:<br>You were given two sets of data, x_data represent the CP value of the Pokeman before the evolution, y_data represents the CP value of the Pokeman after the evolution.</p>
+<p>x_data = [338., 333., 328., 207., 226., 25., 179., 60., 208., 606.]<br>y_data = [640., 633., 619., 393., 428., 27., 193., 66., 226., 1591.]</p>
+<p>Requirements:<br>Find the best function to predict the CP value of the Pokeman.</p>
+<p>Brain Storming Process：</p>
+<ol>
+<li><p>首先根据Loss Function（损失函数）<br><img src="/2021/08/17/Machine-Learning/loss_function.jpg" class="lazyload" data-srcset="/2021/08/17/Machine-Learning/loss_function.jpg" srcset="data:image/png;base64,666" alt="block diagram"><br>loss function的作用是衡量一组参数的好坏</p>
+</li>
+<li><p>因为练习用的是linear model，y = b + w * x，但是要想知道b和w的值我们必须要求出gradient b和gradient w的值<br>根据公式：<br><img src="/2021/08/17/Machine-Learning/w_deri.jpg" class="lazyload" data-srcset="/2021/08/17/Machine-Learning/w_deri.jpg" srcset="data:image/png;base64,666" alt="block derivative"></p>
+</li>
+</ol>
+<p>我们可以写出b和w的gradient：<br><img src="/2021/08/17/Machine-Learning/gradient_derivative.jpg" class="lazyload" data-srcset="/2021/08/17/Machine-Learning/gradient_derivative.jpg" srcset="data:image/png;base64,666" alt="block diagram"></p>
+<p>接下来，我们可以得出function：<br><img src="/2021/08/17/Machine-Learning/get_grad_function.jpg" class="lazyload" data-srcset="/2021/08/17/Machine-Learning/get_grad_function.jpg" srcset="data:image/png;base64,666" alt="block diagram"></p>
+<p>========================================================================================================================================<br>方法一：<br>假设b和w的初始值是（-120，-4），Learning Rate为0.00001，call function get_grad()来得到第一组变化后b和w的值 再带入for-loop运行十万次来找到最优解，具体如下图：<br><img src="/2021/08/17/Machine-Learning/method_one_code.jpg" class="lazyload" data-srcset="/2021/08/17/Machine-Learning/method_one_code.jpg" srcset="data:image/png;base64,666" alt="block diagram"></p>
+<p>我们可以的到b，w，error和function的结果为：<br><img src="/2021/08/17/Machine-Learning/method_one_result.jpg" class="lazyload" data-srcset="/2021/08/17/Machine-Learning/method_one_result.jpg" srcset="data:image/png;base64,666" alt="block diagram"></p>
+<p>可视化的图像generate出来之后的样子是：<br><img src="/2021/08/17/Machine-Learning/method_1_pic.jpg" class="lazyload" data-srcset="/2021/08/17/Machine-Learning/method_1_pic.jpg" srcset="data:image/png;base64,666" alt="block diagram"><br>其中黄色的❌是已知的最优解，黑色线理论上的终点应该就是黄色的❌。</p>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2021/08/17/Machine-Learning/'>
-            Read More
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://example.com/2021/08/17/Machine-Learning/>http://example.com/2021/08/17/Machine-Learning/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-18T00:05:40+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Aug 18, 2021</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/12/28/Time-of-Flight-Systems/">
-        Time of Flight Systems
-      </a>
-    </h2>
-  
-  <div class='md'>
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
       
-        General Description:The Time of Flight sensor is the core part of collecting the distance data by cooperating with a 360 degrees step motor. A slip ring is involved to allow the transmission of pow...
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2021/08/17/Machine-Learning/&title=Machine Learning - Suzhe's website&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2021/08/17/Machine-Learning/&title=Machine Learning - Suzhe's website&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2021/08/17/Machine-Learning/&title=Machine Learning - Suzhe's website&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+    
       
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src=''></a>
-        
-        <time>2020-12-28</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/12/28/Time-of-Flight-Systems/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
 </div>
 
-          </div>
+
+
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/12/22/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/">
-        Dec 22, 2020
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
-title: Self Introductiondate: 2020-12-22 22:56:37tags:–I am currently a third year Electrical Engineering student at McMaster University. Through the last five years, I have asked myself so many t...
-      
-    
+    </div>
   </div>
+
+
   
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src=''></a>
-        
-        <time>2020-12-22</time>
-        
-      </div>
+  
+
+  
+    <div class="prev-next">
       
-        <div>
-          <a class='readmore' href='/2020/12/22/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/'>
-            Read More
-          </a>
-        </div>
+      
+        <a class='next' href='/2020/12/28/Time-of-Flight-Systems/'>
+          <p class='title'>Time of Flight Systems<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>General Description:The Time of Flight sensor is the core part of collecting the distance data by...</p>
+        </a>
       
     </div>
   
+</article>
 
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-          </div>
-        
-      
-    
-  </section>
-  
-    
-  
+  </article>
+
+
+
+
 
 
 </div>
@@ -513,70 +561,8 @@ title: Self Introductiondate: 2020-12-22 22:56:37tags:–I am currently a third 
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-    
-      <div class='text'>
-        
-        
-          <p>每日一句</p>
 
-        
-        
-          <p><span id="jinrishici-sentence">Suzhe's website</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="https://www.linkedin.com/in/suzhe-wu-ab2342170/"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:1006320146@qq.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://music.163.com/#/my/m/music/playlist?id=630114241"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
-
-  
-    
-    
-
-  
-
-  
-    
-    
-
-  
 
   
 
@@ -592,14 +578,14 @@ title: Self Introductiondate: 2020-12-22 22:56:37tags:–I am currently a third 
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="Machine Learning";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
 </script>
 
