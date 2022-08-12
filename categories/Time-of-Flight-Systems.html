@@ -19,7 +19,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>Welcome to Suzhe&#39;s Website</title>
+  <title>Time of Flight Systems - Welcome to Suzhe&#39;s Website</title>
   
 
   
@@ -241,7 +241,7 @@
     <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper post dock' style="display: none;">
+        <div id="full" class='cover-wrapper page dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.pixabay.com/photo/2019/11/01/14/34/china-4594413_1280.jpg"></div>
           
@@ -275,7 +275,7 @@
         
 
 <div class='l_main'>
-  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  <article class="article post white-box reveal md shadow article-type-page" id="page" itemscope itemprop="blogPost">
   
 
 
@@ -284,37 +284,80 @@
     
     
     
+      <h1 class="title">
+        Time of Flight Systems
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="">
+    <p>Suzhe Wu</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>Post On：Dec 28, 2020</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="Time of Flight Systems" data-path="/categories/Time-of-Flight-Systems.html">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        views
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
   </div>
 
 
   
-  <hr>
-<p>title: Self Introduction<br>date: 2020-12-22 22:56:37<br>tags:<br>–<br>I am currently a third year Electrical Engineering student at McMaster University. Through the last five years, I have asked myself so many times that why do I want to become an engineer? I was able to make up my mind after visiting the Apple Park located in Seattle, USA. Perspectively, Engineers are the representatives of our future. They have dedicated themselves into innovating new possibilities and developing revolutionary technology to change the world, and I wish to be a part of them.</p>
+  <p>General Description:<br>The Time of Flight sensor is the core part of collecting the distance data by cooperating with a 360 degrees step motor. A slip ring is involved to allow the transmission of power and electrical signals to ToF.</p>
+<p>ToF: VL53L1X device can be used to measure the distance by comparing the time difference between the laser light is emitted and received again, and it can be controlled by some third-party applications using API which stand for application programming interface and it will be delivered to the customer in the format of C code. It will allow the third-party with high-level functions such as initialization, ranging stop and start, and setting the system accuracy.</p>
+<p>Stepper Motor: 360 degrees motor is used to assist ToF to collect the distance data by finishing a full cycle rotate with relative low velocity.</p>
+<p>Slip Ring: Slip ring is a precise power transmission device that transmits electrical signals and electrical energy between rotating parts of fixed frame and rolling or sliding parts by means of electrostatic or electromagnetic coupling of sliding contact of slip ring.</p>
+<p>Data exchanging between PC and microcontroller: First of all, programming on Keil to command step motor and ToF to accomplish the instruction which is gathering the distance information. Secondly, transmit the data from ToF to PC by URAT, after all the information is on PC, Python could do the construction by installing Open 3D.</p>
+<p><img src="/2DX4_Block_dia.jpg" class="lazyload" data-srcset="/2DX4_Block_dia.jpg" srcset="data:image/png;base64,666" alt="block diagram"></p>
+<p><img src="/device_overview.jpg" class="lazyload" data-srcset="/device_overview.jpg" srcset="data:image/png;base64,666" alt="Device overview"></p>
+<p><img src="/Screen_shot.png" class="lazyload" data-srcset="/Screen_shot.png" srcset="data:image/png;base64,666" alt="Screen shot"></p>
+<p><img src="/characterized_table.jpg" class="lazyload" data-srcset="/characterized_table.jpg" srcset="data:image/png;base64,666" alt="characterized table"></p>
+<p>Detailed Description: </p>
+<p>• Distance Measurement:<br>How the ToF works in detail:(<a target="_blank" rel="noopener" href="https://www.pololu.com/product/3415">https://www.pololu.com/product/3415</a>)<br>VL53L1X is a laser ranging sensor which uses the invisible laser pulse to measure the absolute distance by calculating the time difference between ToF emit and receive the laser light, then using the formula (delta d) = v<em>t. There are three distance modes: short, medium, and long. The longest distance it can measure is 4m and (and sometimes it will be affected by ambient light), but the short mode won’t be affected and with a range around 1.3m. To finish the visualization process. The VL53L1X can be configured and its distance data can be obtained through I2C bus the SCL and SDA lines on the ToF allows the I2C communication with MSP432E401Y microcontroller. However, VL53L1XAPI is intended to build up the communication sensor itself, a set of C functions that take care of the low-level interfacing.VL53L1X can run on various third- party platform by customizing API, PC or python (third party platform) will construct a point cloud system and set the original point to where the ToF is, and then 360 degrees step motor will carry the ToF to do a full cycle rotate to gathering all the distance data, and those data will be stored in A/D and will be transferred into PC and converted from distance measurement into XYZ plane. For example: set the motor to start at 180 degrees and move in clockwise direction. Assume to measure a rectangular space, the first distance sensor get will have zero on Y-axis and a negative value on X-axis, and then, after motor get to a specific angle, the sensor will measure a distance again, by using the angle it go through and the formula X = a</em>cos(theta) and Y = a<em>sin(theta), we get the X coordinate, and Y coordinate respectively and by repeatedly doing the same action, the complete XYZ plane will be constructed.(formula: X = a</em>cos(theta) and Y = a*sin(theta) )</p>
+<p><img src="/FlowChart_prog.png" class="lazyload" data-srcset="/FlowChart_prog.png" srcset="data:image/png;base64,666" alt="Flow Chart"></p>
+<p>• Visualization:<br>OS: Windows 10<br>Laptop Specification<br>Processor: Intel Iris Graphics 6100 1536 MB, RAM: 16.00GB<br>Program Version: Keil uVision5, Python 3.6.8</p>
+<p>• Describe the code with respect to the flow chart:<br>The first step is to establish the communication between the board and ToF via I2C. Once it’s connected, the external LED will be on.<br>According to the flow chart that I made, before we press the button the external LED should be stay on and once the button is pressed, the motor should start working and external LED should be turned off, so for the coding part, bit masking should be applied here so there is an if statement to do a bitwise comparison when button press is detected, the external LED will be in off state, and motor will take in place, a for loop is written to determine the current angle, because for a step motor, to finish one complete cycle, it will takes 512 steps in total which is equal to 360 degrees. Whenever the motor reach the specific angle which means variable i is equal to some predefined value, the motor stop, and there is Get distance function for VL53L1 flash onboard LED function are written behind, so whenever motor stops, the ToF will measure the emit the laser light to measure the distance, and the onboard LED will flash to notify the user that the angle is reached. Variable x and y are written to determine the coordinate for each point by using the formula. Then the controller will send the data to the PC through UART. With the support of pyserial, Python can read these data, decode them, save as .xyz file and use the open3d library to generate mesh grid.</p>
+<p>• How is the data stored and processed:<br>ToF will pass data to the controller by using I2C, and then the controller uses UART to connect to PC, python reads and decodes and stores as in the format of xyz file.</p>
+<p>• How does it visualize:<br>First we need to define the xyz coordinate and construct the point field and make the starting point to be (0,0,0), After this, we have to convert the distance data collected into x y z coordinates. Once a full cycle scan process is completed which means there are 8 distance collected, the device will be ready for next full cycle rotation scan.</p>
+<p>• How the x-y-z plane is defined with respect to your measurements:<br>X and Y component could be get by using the current angle and the distance data collected by ToF, and plug those variables into the formula x=distance<em>sin(ang), y=distance</em>cos(ang). By using IMU, Z component could be given as displacement.</p>
+<p><img src="/Proj_Wiring.png" class="lazyload" data-srcset="/Proj_Wiring.png" srcset="data:image/png;base64,666" alt="Project Wiring"></p>
+<p><img src="/programing_logic_flowchart.png" class="lazyload" data-srcset="/programing_logic_flowchart.png" srcset="data:image/png;base64,666" alt="Programming Logic Flow Chart"></p>
 
   
-  
-    
-    <div class='footer'>
-      
-      
-      
-        <div class='copyright'>
-          <blockquote>
-            
-              
-                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
-
-              
-            
-              
-                <p>本文永久链接是：<a href=http://example.com/2020/12/22/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/>http://example.com/2020/12/22/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/</a></p>
-              
-            
-          </blockquote>
-        </div>
-      
-      
-    </div>
   
   
     
@@ -324,10 +367,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-05T00:35:08-04:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-30T22:07:14-05:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>Update On：Apr 5, 2021</p>
+    <p>Update On：Dec 30, 2020</p>
   </a>
 </div>
 
@@ -346,7 +389,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/12/22/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/&title= - Welcome to Suzhe's Website&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/categories/Time-of-Flight-Systems.html&title=Time of Flight Systems - Welcome to Suzhe's Website&summary="
           
           >
           
@@ -358,7 +401,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2020/12/22/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/&title= - Welcome to Suzhe's Website&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/categories/Time-of-Flight-Systems.html&title=Time of Flight Systems - Welcome to Suzhe's Website&summary="
           
           >
           
@@ -370,7 +413,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/12/22/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/&title= - Welcome to Suzhe's Website&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/categories/Time-of-Flight-Systems.html&title=Time of Flight Systems - Welcome to Suzhe's Website&summary="
           
           >
           
@@ -397,16 +440,6 @@
   
   
 
-  
-    <div class="prev-next">
-      
-        <a class='prev' href='/2020/12/28/Time-of-Flight-Systems/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Time of Flight Systems</p>
-          <p class='content'>General Description:The Time of Flight sensor is the core part of collecting the distance data by...</p>
-        </a>
-      
-      
-    </div>
   
 </article>
 
